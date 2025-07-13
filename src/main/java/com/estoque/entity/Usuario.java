@@ -1,6 +1,6 @@
 package com.estoque.entity;
 
-import com.estoque.secutiry.Role;
+import com.estoque.security.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
