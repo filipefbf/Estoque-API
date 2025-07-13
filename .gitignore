@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+*.log
+*.db
+*.h2.db
+*.DS_Store
+node_modules/
