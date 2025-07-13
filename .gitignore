@@ -6,3 +6,8 @@ target/
 *.h2.db
 *.DS_Store
 node_modules/
+.gitattributes
+.mvn
+HELP.md
+mvnw
+mvnw.cmd
