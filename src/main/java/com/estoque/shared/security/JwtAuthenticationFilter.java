@@ -1,6 +1,6 @@
-package com.estoque.security;
+package com.estoque.shared.security;
 
-import com.estoque.service.UserDetailsServiceImpl;
+import com.estoque.domain.usuario.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

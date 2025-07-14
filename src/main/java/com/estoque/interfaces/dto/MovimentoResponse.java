@@ -1,6 +1,6 @@
-package com.estoque.dto;
+package com.estoque.interfaces.dto;
 
-import com.estoque.entity.TipoMovimento;
+import com.estoque.enums.TipoMovimento;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

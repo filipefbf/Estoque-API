@@ -1,4 +1,4 @@
-package com.estoque.security;
+package com.estoque.shared.security;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,16 +1,13 @@
-package com.estoque.service;
+package com.estoque.domain.movimento;
 
-import com.estoque.dto.MovimentoRequest;
-import com.estoque.dto.MovimentoResponse;
-import com.estoque.entity.Movimento;
-import com.estoque.entity.Produto;
-import com.estoque.entity.TipoMovimento;
-import com.estoque.repository.MovimentoRepository;
-import com.estoque.repository.ProdutoRepository;
-import com.estoque.repository.UsuarioRepository;
+import com.estoque.domain.produto.Produto;
+import com.estoque.domain.produto.ProdutoRepository;
+import com.estoque.domain.usuario.UsuarioRepository;
+import com.estoque.enums.TipoMovimento;
+import com.estoque.interfaces.dto.MovimentoRequest;
+import com.estoque.interfaces.dto.MovimentoResponse;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

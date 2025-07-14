@@ -1,8 +1,9 @@
-package com.estoque.entity;
+package com.estoque.domain.movimento;
 
+import com.estoque.domain.produto.Produto;
+import com.estoque.domain.usuario.Usuario;
+import com.estoque.enums.TipoMovimento;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 

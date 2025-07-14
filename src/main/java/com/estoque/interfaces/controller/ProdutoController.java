@@ -1,7 +1,7 @@
-package com.estoque.controller;
+package com.estoque.interfaces.controller;
 
-import com.estoque.entity.Produto;
-import com.estoque.service.ProdutoService;
+import com.estoque.domain.produto.Produto;
+import com.estoque.domain.produto.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

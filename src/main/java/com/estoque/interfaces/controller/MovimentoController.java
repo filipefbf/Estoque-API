@@ -1,9 +1,9 @@
-package com.estoque.controller;
+package com.estoque.interfaces.controller;
 
-import com.estoque.dto.MovimentoRequest;
-import com.estoque.dto.MovimentoResponse;
-import com.estoque.security.JwtAuthenticationToken;
-import com.estoque.service.MovimentoService;
+import com.estoque.domain.movimento.MovimentoService;
+import com.estoque.interfaces.dto.MovimentoRequest;
+import com.estoque.interfaces.dto.MovimentoResponse;
+import com.estoque.shared.security.JwtAuthenticationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

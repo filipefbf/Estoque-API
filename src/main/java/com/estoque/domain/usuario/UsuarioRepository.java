@@ -1,6 +1,5 @@
-package com.estoque.repository;
+package com.estoque.domain.usuario;
 
-import com.estoque.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.estoque.security;
+package com.estoque.shared.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

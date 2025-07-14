@@ -1,6 +1,5 @@
-package com.estoque.repository;
+package com.estoque.domain.movimento;
 
-import com.estoque.entity.Movimento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
