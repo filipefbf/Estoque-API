@@ -1,10 +1,8 @@
 package com.estoque.config;
 
-import com.estoque.entity.Produto;
-import com.estoque.entity.Usuario;
-import com.estoque.repository.ProdutoRepository;
-import com.estoque.repository.UsuarioRepository;
-import com.estoque.security.Role;
+import com.estoque.domain.produto.Produto;
+import com.estoque.domain.produto.ProdutoRepository;
+import com.estoque.domain.usuario.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -32,20 +30,20 @@ public class DataSeeder implements CommandLineRunner {
             produtoRepository.saveAll(produtos);
             System.out.println("✔ Produtos de exemplo inseridos.");
         }
-        if (usuarioRepository.count() == 0) {
-            Usuario admin = new Usuario();
-            admin.setUsername("admin");
-            admin.setPassword("admin123"); // Em produção, use um PasswordEncoder
-            admin.setRole(Role.ADMIN);
-            usuarioRepository.save(admin);
-
-            Usuario user = new Usuario();
-            user.setUsername("user");
-            user.setPassword("user123"); // Em produção, use um PasswordEncoder
-            user.setRole(Role.USER);
-            usuarioRepository.save(user);
-
-            System.out.println("✔ Usuários de exemplo inseridos.");
-        }
+//        if (usuarioRepository.count() == 0) {
+//            Usuario admin = new Usuario();
+//            admin.setUsername("admin");
+//            admin.setPassword("admin123"); // Em produção, use um PasswordEncoder
+//            admin.setRole(Role.ADMIN);
+//            usuarioRepository.save(admin);
+//
+//            Usuario user = new Usuario();
+//            user.setUsername("user");
+//            user.setPassword("user123"); // Em produção, use um PasswordEncoder
+//            user.setRole(Role.USER);
+//            usuarioRepository.save(user);
+//
+//            System.out.println("✔ Usuários de exemplo inseridos.");
+//        }
     }
 }

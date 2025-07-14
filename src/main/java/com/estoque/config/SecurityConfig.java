@@ -1,6 +1,6 @@
 package com.estoque.config;
 
-import com.estoque.security.JwtAuthenticationFilter;
+import com.estoque.shared.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.estoque.entity;
+package com.estoque.domain.produto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

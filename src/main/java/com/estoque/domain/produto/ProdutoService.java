@@ -1,7 +1,5 @@
-package com.estoque.service;
+package com.estoque.domain.produto;
 
-import com.estoque.entity.Produto;
-import com.estoque.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

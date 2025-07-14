@@ -1,6 +1,6 @@
-package com.estoque.entity;
+package com.estoque.domain.usuario;
 
-import com.estoque.security.Role;
+import com.estoque.shared.security.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

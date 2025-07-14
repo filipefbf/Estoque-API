@@ -1,6 +1,6 @@
-package com.estoque.dto;
+package com.estoque.interfaces.dto;
 
-import com.estoque.security.Role;
+import com.estoque.shared.security.Role;
 import lombok.Data;
 
 @Data

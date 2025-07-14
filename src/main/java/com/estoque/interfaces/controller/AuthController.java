@@ -1,11 +1,11 @@
-package com.estoque.controller;
+package com.estoque.interfaces.controller;
 
-import com.estoque.entity.Usuario;
-import com.estoque.repository.UsuarioRepository;
-import com.estoque.dto.AuthRequest;
-import com.estoque.dto.AuthResponse;
-import com.estoque.security.JwtUtil;
-import com.estoque.dto.RegisterRequest;
+import com.estoque.domain.usuario.Usuario;
+import com.estoque.domain.usuario.UsuarioRepository;
+import com.estoque.interfaces.dto.AuthRequest;
+import com.estoque.interfaces.dto.AuthResponse;
+import com.estoque.shared.security.JwtUtil;
+import com.estoque.interfaces.dto.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;

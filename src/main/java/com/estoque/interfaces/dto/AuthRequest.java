@@ -1,4 +1,4 @@
-package com.estoque.dto;
+package com.estoque.interfaces.dto;
 
 import lombok.Data;
 

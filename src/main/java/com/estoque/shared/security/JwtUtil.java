@@ -1,4 +1,4 @@
-package com.estoque.security;
+package com.estoque.shared.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,8 +1,6 @@
-package com.estoque.service;
+package com.estoque.domain.usuario;
 
-import com.estoque.entity.Usuario;
-import com.estoque.repository.UsuarioRepository;
-import com.estoque.security.Role;
+import com.estoque.shared.security.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
