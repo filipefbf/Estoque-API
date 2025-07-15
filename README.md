@@ -77,6 +77,87 @@ mvn clean install -DskipTests
 docker compose up --build
 ```
 
+Chamadas para a API devem ser feitas em `http://localhost:8080/
+```bash
+# Cria ADMIN POST
+curl --location 'http://localhost:8080/auth/register' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "admin",
+    "password": "123",
+    "role": "ADMIN"
+}'
+```
+```bash
+
+# Cria USER POST
+curl --location 'http://localhost:8080/auth/register' \
+--header 'Content-Type: application/json' \
+--data '{
+"username": "user",
+"password": "124",
+"role": "USER"
+}'
+```
+```bash
+# Autentica usuario POST
+curl --location 'http://localhost:8080/auth/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "admin",
+    "password": "124"
+}'
+```
+
+```bash
+# Cria produto PUT
+curl --location 'http://localhost:8080/produtos' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
+--data '{
+    "nome": "Teclado",
+    "quantidade": 10,
+    "quantidadeMinima": 10,
+    "versao": 0
+}'
+```
+```bash
+# Lista produtos
+curl --location 'http://localhost:8080/produtos' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss'
+```
+
+```bash
+# Busca produto por ID GET
+curl --location 'http://localhost:8080/produtos/1' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
+--data '{
+    "nome": "Teclado",
+    "quantidade": 10,
+    "quantidadeMinima": 10,
+    "versao": 0
+}'
+```
+
+```bash
+# Atualiza produto PUT
+curl --location 'http://localhost:8080/produtos/1' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
+--data '{
+    "nome": "Teclado",
+    "quantidade": 10,
+    "quantidadeMinima": 10,
+    "versao": 0
+}'
+```
+
+```bash
+# Deleta produto por ID DELETE
+curl --location 'http://localhost:8080/produtos/1' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
+```
+
+
 ```bash
 # Executa com o profile prod
 SPRING_PROFILES_ACTIVE=prod java -jar target/estoque-0.0.1-SNAPSHOT.jar
@@ -131,6 +212,8 @@ A aplicação conta com um pipeline automatizado com:
 - Deploy na nuvem (em progresso)
 
 ## ✒️ Autor
+
+
 
 **Filipe Ferreira**  
 Desenvolvedor Java Sênior | Spring | AWS | Docker | Kafka  
