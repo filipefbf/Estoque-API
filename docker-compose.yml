@@ -5,8 +5,9 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlserver
     environment:
-      SA_PASSWORD: "uma-chave-secreta-em-producao-mais-complexa"
       ACCEPT_EULA: "Y"
+      SA_PASSWORD: "SenhaForte@123"
+      MSSQL_TCP_ENFORCE_ENCRYPTION: "0"
     ports:
       - "1433:1433"
     networks:
@@ -14,7 +15,7 @@ services:
 
   api:
     build:
-      context: ./Estoque-API
+      context: .
     container_name: estoque-api
     ports:
       - "8080:8080"
