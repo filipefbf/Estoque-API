@@ -15,15 +15,16 @@ import java.util.List;
 @RequestMapping("/movimentos")
 public class MovimentoController {
 
-    @Autowired
-    private MovimentoService service;
+    private final MovimentoService service;
+
+    public MovimentoController(MovimentoService service) {
+        this.service = service;
+    }
 
     @PostMapping
-    public MovimentoResponse registrar(@AuthenticationPrincipal UserDetails user,
-                                       @RequestBody MovimentoRequest req) {
-        // supondo que Usuario.username seja único e armazenado em token
-        Long userId = Long.parseLong(((JwtAuthenticationToken) user).getName()); // adaptar conforme UserDetails
-        return service.registrar(userId, req);
+    public MovimentoResponse registrar(JwtAuthenticationToken user, MovimentoRequest request) {
+        Long userId = Long.parseLong(user.getName());
+        return service.registrar(userId, request);
     }
 
     @GetMapping("/produto/{id}")

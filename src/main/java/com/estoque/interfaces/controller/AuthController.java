@@ -6,6 +6,8 @@ import com.estoque.interfaces.dto.AuthRequest;
 import com.estoque.interfaces.dto.AuthResponse;
 import com.estoque.shared.security.JwtUtil;
 import com.estoque.interfaces.dto.RegisterRequest;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,6 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthController {
     @Autowired
     private AuthenticationManager authManager;
@@ -36,7 +39,7 @@ public class AuthController {
     @PostMapping("/login")
     public AuthResponse login(@RequestBody AuthRequest req) {
         Authentication auth = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword()));
+                new UsernamePasswordAuthenticationToken(req.username(), req.password()));
         String token = jwtUtil.generateToken((User) auth.getPrincipal());
         return new AuthResponse(token);
     }
@@ -44,9 +47,9 @@ public class AuthController {
     @PostMapping("/register")
     public AuthResponse register(@RequestBody RegisterRequest req) {
         Usuario user = new Usuario();
-        user.setUsername(req.getUsername());
-        user.setPassword(encoder.encode(req.getPassword()));
-        user.setRole(req.getRole());
+        user.setUsername(req.username());
+        user.setPassword(encoder.encode(req.password()));
+        user.setRole(req.role());
         repo.save(user);
         String token = jwtUtil.generateToken(
                 new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), List.of()));

@@ -6,12 +6,11 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-public class MovimentoResponse {
-    private Long id;
-    private Long produtoId;
-    private TipoMovimento tipo;
-    private Integer quantidade;
-    private LocalDateTime data;
+
+public record MovimentoResponse (
+    Long id,
+    Long produtoId,
+    TipoMovimento tipo,
+    Integer quantidade,
+    LocalDateTime data ){
 }

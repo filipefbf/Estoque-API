@@ -2,6 +2,7 @@ package com.estoque.domain.movimento;
 
 import com.estoque.domain.produto.Produto;
 import com.estoque.domain.produto.ProdutoRepository;
+import com.estoque.domain.usuario.Usuario;
 import com.estoque.domain.usuario.UsuarioRepository;
 import com.estoque.enums.TipoMovimento;
 import com.estoque.interfaces.dto.MovimentoRequest;
@@ -29,6 +30,9 @@ public class MovimentoService {
         Produto produto = produtoRepo.findById(req.produtoId())
                 .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
 
+        Usuario usuario = usuarioRepo.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+
         if (req.tipo() == TipoMovimento.SAIDA) {
             if (produto.getQuantidade() < req.quantidade()) {
                 throw new IllegalArgumentException("Estoque insuficiente");
@@ -41,6 +45,7 @@ public class MovimentoService {
         // alerta caso abaixo mínimo
         if (produto.getQuantidade() < produto.getQuantidadeMinima()) {
             // TODO: implementar notificação / log
+            System.out.println("Alerta: Estoque abaixo do mínimo para o produto " + produto.getId());
         }
 
         Movimento mov = new Movimento();
@@ -58,6 +63,9 @@ public class MovimentoService {
     }
 
     public List<MovimentoResponse> listarPorProduto(Long produtoId) {
+        if (produtoId == null) {
+            throw new IllegalArgumentException("Produto ID não pode ser nulo");
+        }
         return movimentoRepo.findByProdutoId(produtoId).stream()
                 .map(m -> new MovimentoResponse(m.getId(), produtoId, m.getTipo(), m.getQuantidade(), m.getData()))
                 .toList();

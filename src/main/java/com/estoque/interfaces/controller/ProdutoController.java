@@ -2,6 +2,7 @@ package com.estoque.interfaces.controller;
 
 import com.estoque.domain.produto.Produto;
 import com.estoque.domain.produto.ProdutoService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/produtos")
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class ProdutoController {
     @Autowired
     private ProdutoService service;
