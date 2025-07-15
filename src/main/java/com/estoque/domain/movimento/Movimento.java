@@ -19,16 +19,27 @@ public class Movimento {
 
     private LocalDateTime data;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Produto produto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     public Movimento() {
     }
 
     public Movimento(Long id, TipoMovimento tipo, Integer quantidade, LocalDateTime data, Produto produto, Usuario usuario) {
+        if (quantidade == null) {
+            throw new NullPointerException("Quantidade não pode ser nula");
+        }
+        if (produto == null) {
+            throw new NullPointerException("Produto não pode ser nulo");
+        }
+        if (usuario == null) {
+            throw new NullPointerException("Usuário não pode ser nulo");
+        }
         this.id = id;
         this.tipo = tipo;
         this.quantidade = quantidade;

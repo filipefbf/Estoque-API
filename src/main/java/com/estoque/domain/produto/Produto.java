@@ -1,26 +1,30 @@
 package com.estoque.domain.produto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
+import com.estoque.domain.movimento.Movimento;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
-@AllArgsConstructor
 @Data
 public class Produto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private Integer quantidade;
     private Integer quantidadeMinima;
-    @Version
-    private Long versao; // controle de concorrência
+    @OneToMany(mappedBy = "produto")
+    private List<Movimento> movimentos;
 
-    public Produto(Long id, String nome, int quantidade, int quantidadeMinima) {
+
+
+    public Produto(Long id, String nome, Integer quantidade, Integer quantidadeMinima) {
+        if (nome == null) {
+            throw new NullPointerException("Nome do produto não pode ser nulo");
+        }
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;
