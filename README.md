@@ -72,6 +72,12 @@ docker compose up --build
 O profile `prod` usa SQL Server via Docker com configuração de autenticação, persistência e `application-prod.properties`.
 
 ```bash
+# Suba o ambiente com banco de dados e API
+mvn clean install -DskipTests
+docker compose up --build
+```
+
+```bash
 # Executa com o profile prod
 SPRING_PROFILES_ACTIVE=prod java -jar target/estoque-0.0.1-SNAPSHOT.jar
 ```
