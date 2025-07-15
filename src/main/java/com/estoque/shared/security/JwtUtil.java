@@ -3,6 +3,7 @@ package com.estoque.shared.security;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +11,10 @@ import java.security.Key;
 import java.util.Date;
 
 @Component
+@RequiredArgsConstructor
 public class JwtUtil {
     private final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Generate a secure key
-    private final long EXPIRATION = 86400000; // 1 day
+    private final long EXPIRATION = 1800000; // 30 min
 
     public String generateToken(org.springframework.security.core.userdetails.User user) {
         return Jwts.builder()
