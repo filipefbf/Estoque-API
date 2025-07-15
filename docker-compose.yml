@@ -14,7 +14,7 @@ services:
 
   api:
     build:
-      context: ./estoque
+      context: ./Estoque-API
     container_name: estoque-api
     ports:
       - "8080:8080"
