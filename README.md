@@ -77,15 +77,14 @@ mvn clean install -DskipTests
 docker compose up --build
 ```
 
-```bash
-# Swagger UI
-Acesse a documentação da API em:
-http://localhost:8080/swagger-ui/index.html
-```
+
+## Swagger UI
+- http://localhost:8080/swagger-ui/index.html
+
 
 Chamadas para a API devem ser feitas em `http://localhost:8080/
+### Cria ADMIN POST
 ```bash
-# Cria ADMIN POST
 curl --location 'http://localhost:8080/auth/register' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -94,9 +93,9 @@ curl --location 'http://localhost:8080/auth/register' \
     "role": "ADMIN"
 }'
 ```
-```bash
 
-# Cria USER POST
+### Cria USER POST
+```bash
 curl --location 'http://localhost:8080/auth/register' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -105,8 +104,9 @@ curl --location 'http://localhost:8080/auth/register' \
 "role": "USER"
 }'
 ```
+
+### Autentica usuario POST
 ```bash
-# Autentica usuario POST
 curl --location 'http://localhost:8080/auth/login' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -115,8 +115,8 @@ curl --location 'http://localhost:8080/auth/login' \
 }'
 ```
 
+### Cria produto PUT
 ```bash
-# Cria produto PUT
 curl --location 'http://localhost:8080/produtos' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
@@ -127,14 +127,15 @@ curl --location 'http://localhost:8080/produtos' \
     "versao": 0
 }'
 ```
+
+### Lista produtos
 ```bash
-# Lista produtos
 curl --location 'http://localhost:8080/produtos' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss'
 ```
 
+### Busca produto por ID GET
 ```bash
-# Busca produto por ID GET
 curl --location 'http://localhost:8080/produtos/1' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
 --data '{
@@ -145,8 +146,8 @@ curl --location 'http://localhost:8080/produtos/1' \
 }'
 ```
 
+### Atualiza produto PUT
 ```bash
-# Atualiza produto PUT
 curl --location 'http://localhost:8080/produtos/1' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
 --data '{
@@ -157,15 +158,15 @@ curl --location 'http://localhost:8080/produtos/1' \
 }'
 ```
 
+### Deleta produto por ID DELETE
 ```bash
-# Deleta produto por ID DELETE
 curl --location 'http://localhost:8080/produtos/1' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzUyNTUyOTYxLCJleHAiOjE3NTI1NTQ3NjF9.LJVU9tv3DEODVck-VOqNE4lVK1jOZhkkeyCW157btss' \
 ```
 
 
+### Executa com o profile prod
 ```bash
-# Executa com o profile prod
 SPRING_PROFILES_ACTIVE=prod java -jar target/estoque-0.0.1-SNAPSHOT.jar
 ```
 
