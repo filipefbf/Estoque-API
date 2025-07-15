@@ -30,6 +30,7 @@
 		<java.version>21</java.version>
 		<jacoco.version>0.8.13</jacoco.version>
 		<jacoco.report>target/site/jacoco</jacoco.report>
+		<mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
 	</properties>
 	<dependencies>
 		<dependency>
