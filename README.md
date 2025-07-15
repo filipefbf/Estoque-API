@@ -77,6 +77,12 @@ mvn clean install -DskipTests
 docker compose up --build
 ```
 
+```bash
+# Swagger UI
+Acesse a documentação da API em:
+http://localhost:8080/swagger-ui/index.html
+```
+
 Chamadas para a API devem ser feitas em `http://localhost:8080/
 ```bash
 # Cria ADMIN POST
